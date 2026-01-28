@@ -87,6 +87,32 @@ deactivate
 python main.py
 ```
 
+## Rocm examples repository
+
+These [instructions](https://github.com/ROCm/rocm-examples) assume that the prerequisites for every example are installed on the system.
+
+### CMake
+
+See CMake build options for an overview of build options.
+
+```
+    git clone https://github.com/ROCm/rocm-examples.git
+    cd rocm-examples
+    cmake -S . -B build (on ROCm) or cmake -S . -B build -D GPU_RUNTIME=CUDA (on CUDA)
+    cmake --build build
+    cmake --install build --prefix install
+```
+
+### Make
+
+Beware that only a subset of the examples support building via Make.
+
+```
+    git clone https://github.com/ROCm/rocm-examples.git
+    cd rocm-examples
+    make (on ROCm) or $ make GPU_RUNTIME=CUDA (on CUDA)
+```
+    
 Done for while!
 
 ## Reference links
