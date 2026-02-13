@@ -14,7 +14,7 @@ podman run -it --rm \
     --device=/dev/kfd --device=/dev/dri \
     --group-add video \
     --ipc=host \
-    --shm-size 8G \
+    --shm-size 4G \
     --security-opt seccomp=unconfined \
     rocm/pytorch:latest 
 ```

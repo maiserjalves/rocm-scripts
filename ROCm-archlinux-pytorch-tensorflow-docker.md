@@ -28,12 +28,12 @@ docker pull rocm/tensorflow:latest
 
 ### Run docker command to instantiate `pytorch` rocm container
 ```bash
-docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --shm-size 8G -v $HOME/dockerx:/dockerx -w /dockerx rocm/pytorch:latest
+docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --shm-size 4G -v $HOME/dockerx:/dockerx -w /dockerx rocm/pytorch:latest
 ```
 
 ### Run docker command to instantiate `tensorflow` rocm container
 ```bash
-docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add=video --cap-add=SYS\_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx -w /dockerx rocm/tensorflow:latest /bin/bash
+docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 4G --group-add=video --cap-add=SYS\_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx -w /dockerx rocm/tensorflow:latest /bin/bash
 ```
 
 
