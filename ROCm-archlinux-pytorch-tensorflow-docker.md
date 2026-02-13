@@ -36,8 +36,7 @@ docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=vi
 docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 4G --group-add=video --cap-add=SYS\_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx -w /dockerx rocm/tensorflow:latest /bin/bash
 ```
 
-
-#### params:
+##### params:
 * `--network=host`: Allows you to access the container's services (like Jupyter) on the same port on your host machine.
 
 * `--device=/dev/kfd --device=/dev/dri --group-add=video`: These flags are crucial for providing the container access to the host's AMD GPU hardware.
@@ -48,31 +47,29 @@ docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --s
 
 
 
-### Test working rocm in containers
+### Install Jupyter Notebook inside the pytorch or tensorflow rocm container
+```
+pip install jupyter notebook
+```
+##### Launch Jupyter Notebook Inside the Container 
+```bash
+jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+```
+open Jupyter in Browser 127.0.0.1…
 
+
+
+### Test working rocm in containers
 
 for `rocm/pytorch` container
 ```bash
 python -c "import torch; print(f'torch version: {torch.__version__}'); print(f'ROCm available: {torch.cuda.is_available()}')"
 ```
 
-
 for `rocm/tensorflow` container
 ```bash
 python -c 'import tensorflow as tf; print("Built with ROCm support:", tf.test.is_built_with_rocm()); print("Available GPUs:", tf.config.list_physical_devices("GPU"))'
 ```
-
-
-
-### Install Jupyter Notebook inside the pytorch or tensorflow rocm container
-```
-pip install jupyter notebook
-```
-### Launch Jupyter Notebook Inside the Container 
-```bash
-jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
-```
-open Jupyter in Browser 127.0.0.1...
 
 
 #### snapshoting docker container after modifications
@@ -83,6 +80,7 @@ docker commit <containerID> <new_image_name>:<tag>
 example: docker commit <containerID> rocm/pytorch:latest-with-jupyter
 example: docker commit <containerID> rocm/tensorflow:latest-with-jupyter
 ```
+
 ## Test scripts
 
 #### for Pytorch test script
