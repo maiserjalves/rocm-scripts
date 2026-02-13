@@ -70,10 +70,6 @@ another packages
 ```bash
 paru -S python-torchvision-rocm python-torchaudio-rocm
 ```
-```bash
-wget 
-
-```
 
 ### Download Pytorch examples:
 ```bash

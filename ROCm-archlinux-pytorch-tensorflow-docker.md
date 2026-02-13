@@ -17,8 +17,6 @@ run docker witout sudo
 sudo usermod -aG docker $USER
 ```
 you need to log out and log back in, or restart your system, for the group membership to be re-evaluated
-
-test
 ```bash
 docker run hello-world
 ```
@@ -85,7 +83,7 @@ docker commit <containerID> <new_image_name>:<tag>
 example: docker commit <containerID> rocm/pytorch:latest-with-jupyter
 example: docker commit <containerID> rocm/tensorflow:latest-with-jupyter
 ```
-
+## Test scripts
 
 #### for Pytorch test script
 ```python
