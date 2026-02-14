@@ -64,8 +64,13 @@ paru -S hiprt glfw hip-runtime-amd
 
 Install Pytorch for Archlinux ROCm
 ```bash
-paru -S python-pytorch-rocm python-tensorflow-rocm 
+paru -S python-pytorch-rocm 
 ```
+Install TensorFlow for Archlinux ROCm (many installation problems; consider using docker version instead)
+```bash
+paru -S bazelisk python-tensorflow-rocm
+```
+
 another packages
 ```bash
 paru -S python-torchvision-rocm python-torchaudio-rocm
